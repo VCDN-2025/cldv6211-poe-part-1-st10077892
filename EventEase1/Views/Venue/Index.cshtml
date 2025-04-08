@@ -1,0 +1,123 @@
+@model IEnumerable<EventEase1.Models.Venue>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background-color: #f7c9e2; /* Baby pink background */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main title styling */
+        h1 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Create new button styling */
+        p a {
+            background-color: #ff66b3; /* Pink button */
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+            p a:hover {
+                background-color: #cc3399; /* Darker pink on hover */
+            }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+            table th, table td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            table th {
+                background-color: #ff66b3; /* Pink header */
+                color: white;
+            }
+
+            table tr:hover {
+                background-color: #f7c9e2; /* Light pink on row hover */
+            }
+
+        /* Action links styling */
+        .action-links a {
+            color: #ff66b3;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+            .action-links a:hover {
+                color: #cc3399; /* Darker pink on hover */
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Main Title -->
+    <h1>Venue List</h1>
+
+    <!-- Create New Venue Button -->
+    <p>
+        <a asp-action="Create">Create New Venue</a>
+    </p>
+
+    <!-- Venue List Table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.VenueName)</th>
+                <th>@Html.DisplayNameFor(model => model.Location)</th>
+                <th>@Html.DisplayNameFor(model => model.Capacity)</th>
+                <th>@Html.DisplayNameFor(model => model.ImageUrl)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.VenueName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Capacity)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ImageUrl)</td>
+                    <td class="action-links">
+                        <a asp-action="Edit" asp-route-id="@item.VenueId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.VenueId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.VenueId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

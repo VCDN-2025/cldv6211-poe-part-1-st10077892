@@ -1,0 +1,158 @@
+@model EventEase1.Models.Venue
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background-color: #f7c9e2; /* Baby pink background */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main title styling */
+        h1 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h4 {
+            color: #ff66b3; /* Pink color */
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Form container styling */
+        .form-container {
+            margin-top: 30px;
+            background-color: #fff; /* White background for the form */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                color: #333;
+                font-weight: bold;
+            }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+            .form-control:focus {
+                border-color: #ff66b3; /* Pink border on focus */
+                box-shadow: 0 0 5px rgba(255, 102, 179, 0.5);
+            }
+
+        .btn-primary {
+            background-color: #ff66b3; /* Pink button */
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+        }
+
+            .btn-primary:hover {
+                background-color: #cc3399; /* Darker pink on hover */
+            }
+
+        .text-danger {
+            color: #ff4d6b; /* Dark pink for error messages */
+        }
+
+        /* Back Link Styling */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #ff66b3;
+            text-decoration: none;
+        }
+
+            .back-link:hover {
+                color: #cc3399; /* Darker pink for hover */
+            }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Title -->
+    <h1>Create Venue</h1>
+
+    <!-- Form Section -->
+    <div class="form-container">
+        <h4>Venue Information</h4>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Venue Name Input -->
+            <div class="form-group">
+                <label asp-for="VenueName" class="control-label">Venue Name</label>
+                <input asp-for="VenueName" class="form-control" />
+                <span asp-validation-for="VenueName" class="text-danger"></span>
+            </div>
+
+            <!-- Location Input -->
+            <div class="form-group">
+                <label asp-for="Location" class="control-label">Location</label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+
+            <!-- Capacity Input -->
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label">Capacity</label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+
+            <!-- Image URL Input -->
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label">Image URL</label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <!-- Back Link -->
+    <div>
+        <a asp-action="Index" class="back-link">Back to List</a>
+    </div>
+
+</body>
+</html>

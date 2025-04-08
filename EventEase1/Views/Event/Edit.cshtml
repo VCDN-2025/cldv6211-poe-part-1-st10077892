@@ -1,0 +1,140 @@
+@model EventEase1.Models.Event
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background-color: #f7c9e2; /* Baby pink background */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main title styling */
+        h1 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Event Header */
+        h4 {
+            color: #ff66b3; /* Pink color */
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Form Layout */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                color: #ff66b3; /* Pink color */
+            }
+
+        .form-control {
+            border: 1px solid #ff66b3; /* Pink border */
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+            .form-control:focus {
+                border-color: #cc3399; /* Darker pink on focus */
+            }
+
+        .btn-primary {
+            background-color: #ff66b3; /* Pink button */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .btn-primary:hover {
+                background-color: #cc3399; /* Darker pink on hover */
+            }
+
+        /* Action Links */
+        .action-links {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+
+            .action-links a {
+                color: #ff66b3;
+                font-weight: bold;
+                text-decoration: none;
+                padding: 10px;
+            }
+
+                .action-links a:hover {
+                    color: #cc3399; /* Darker pink on hover */
+                }
+    </style>
+</head>
+<body>
+
+    <!-- Main Title -->
+    <h1>Edit Event</h1>
+
+    <!-- Event Edit Form -->
+    <div class="container">
+        <h4>Edit Event Information</h4>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EventId" />
+
+            <!-- Event Name Field -->
+            <div class="form-group">
+                <label asp-for="EventName" class="control-label"></label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName" class="text-danger"></span>
+            </div>
+
+            <!-- Event Date Field -->
+            <div class="form-group">
+                <label asp-for="EventDate" class="control-label"></label>
+                <input asp-for="EventDate" class="form-control" />
+                <span asp-validation-for="EventDate" class="text-danger"></span>
+            </div>
+
+            <!-- Event Description Field -->
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Save Button -->
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <!-- Action Links Section -->
+    <div class="action-links">
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</body>
+</html>

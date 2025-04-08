@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        div.mycontainer {
+            width: 100%;
+            overflow: auto;
+        }
+
+            div.mycontainer div {
+                width: 33%;
+                float: left;
+            }
+        body {
+            background-color: #f7c9e2; /* Baby pink background */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Centering text and adding padding */
+        .text-center {
+            padding-top: 100px; /* Space from the top */
+            text-align: center;
+        }
+
+        h1.display-4 {
+            color: #ff66b3; /* Pink color for the heading */
+            font-weight: bold;
+            font-size: 4rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
+
+        /* Welcome Box Styling */
+        .welcome-box {
+            background-color: #fff; /* White background */
+            padding: 50px;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+            max-width: 800px;
+            margin: 0 auto; /* Center the box */
+            margin-top: 50px;
+        }
+
+            .welcome-box p {
+                color: #555; /* Dark grey for the text */
+                font-size: 1.25rem;
+            }
+
+        /* Image styling */
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* Round the corners */
+            margin-top: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow around the image */
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 50px;
+        }
+
+            .image-gallery img {
+                width: 250px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+        
+
+        .footer-text {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Welcome Section -->
+    <div class="text-center">
+        <h1 class="display-4">Welcome to EventEase</h1>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="text-center">
+    </div>
+
+    <!-- Welcome Box with Description -->
+    <div class="welcome-box text-center">
+        <p>Your one-stop platform to manage and organize events effortlessly. Whether you're planning a small gathering or a large conference, EventEase has you covered.</p>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <div class="mycontainer">
+
+        <div style="background-color:#FFF4A3;">
+            <h2>Bookings</h2>
+			<img src="~/css/book1.png" alt="Book">
+            <p>We offer venue booking, check availability!</p>
+            <p>BOOK WITH US!</p>
+        </div>
+
+        <div style="background-color:#FFC0C7;">
+            <h2>Venues</h2>
+            <img src="~/css/Event.jpg" alt="Event">
+            <p>See our venues!.</p>
+            <p>Also do check venue availablity.</p>
+        </div>
+
+        <div style="background-color:#D9EEE1;">
+            <h2>Events</h2>
+            <img src="~/css/eventss.jpg" alt="eventss">
+            <p>See which events are upcoming! </p>
+            <p>Join us.</p>
+        </div>
+
+    </div>
+
+  
+
+</body>
+</html>

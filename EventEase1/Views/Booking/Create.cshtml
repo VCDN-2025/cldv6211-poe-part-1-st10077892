@@ -1,0 +1,143 @@
+@model EventEase1.Models.Booking
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background-color: #f7c9e2; /* Baby pink background */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main title styling */
+        h1 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h4 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        /* Form styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                color: #333;
+                font-weight: bold;
+            }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+            .form-control:focus {
+                border-color: #ff66b3; /* Pink border on focus */
+                box-shadow: 0 0 5px rgba(255, 102, 179, 0.5);
+            }
+
+        .btn {
+            background-color: #ff66b3; /* Pink button */
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+        }
+
+            .btn:hover {
+                background-color: #cc3399; /* Darker pink on hover */
+            }
+
+        .text-danger {
+            color: #ff4d6b; /* Darker pink for validation messages */
+        }
+
+        /* Back link styling */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #ff66b3;
+            text-decoration: none;
+        }
+
+            .back-link:hover {
+                color: #cc3399; /* Darker pink for hover effect */
+            }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Title -->
+    <h1>Create Booking</h1>
+
+    <h4>Booking</h4>
+    <hr />
+
+    <!-- Create Booking Form -->
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="EventId" class="control-label">Event</label>
+                    <input asp-for="EventId" class="form-control" />
+                    <span asp-validation-for="EventId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="VenueId" class="control-label">Venue</label>
+                    <input asp-for="VenueId" class="form-control" />
+                    <span asp-validation-for="VenueId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back Link -->
+    <div>
+        <a asp-action="Index" class="back-link">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+</body>
+</html>

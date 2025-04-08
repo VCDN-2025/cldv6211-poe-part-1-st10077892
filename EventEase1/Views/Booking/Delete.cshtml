@@ -1,0 +1,151 @@
+@model EventEase1.Models.Booking
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background-color: #f7c9e2; /* Baby pink background */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main title styling */
+        h1 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        h4 {
+            color: #ff66b3; /* Pink color */
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        /* Form styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                color: #333;
+                font-weight: bold;
+            }
+
+        .btn-danger {
+            background-color: #ff4d6b; /* Dark pink for delete button */
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+        }
+
+            .btn-danger:hover {
+                background-color: #cc3366; /* Darker pink for hover */
+            }
+
+        .text-danger {
+            color: #ff4d6b; /* Dark pink for error messages */
+        }
+
+        /* Back link styling */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #ff66b3;
+            text-decoration: none;
+        }
+
+            .back-link:hover {
+                color: #cc3399; /* Darker pink for hover effect */
+            }
+
+        /* Description list styling */
+        dl.row {
+            margin-top: 20px;
+            background-color: #fff; /* White background for the details section */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Title -->
+    <h1>Delete Booking</h1>
+
+    <!-- Confirmation Message -->
+    <h3>Are you sure you want to delete this?</h3>
+
+    <!-- Booking Details -->
+    <div>
+        <h4>Booking Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EventId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EventId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VenueId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VenueId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BookingDate)
+            </dd>
+        </dl>
+
+        <!-- Delete Confirmation Form -->
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="BookingId" />
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn-danger" />
+            </div>
+            <a asp-action="Index" class="back-link">Back to List</a>
+        </form>
+    </div>
+
+</body>
+</html>

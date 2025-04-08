@@ -1,0 +1,109 @@
+@model EventEase1.Models.Event
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background-color: #f7c9e2; /* Baby pink background */
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main title styling */
+        h1 {
+            color: #ff66b3; /* Pink color */
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Event Details Header */
+        h4 {
+            color: #ff66b3; /* Pink color */
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Description Layout */
+        dl {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Label styling for fields */
+        .form-group label {
+            color: #ff66b3; /* Pink color */
+        }
+
+        /* Action Links Styling */
+        .action-links {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+
+            .action-links a {
+                color: #ff66b3;
+                font-weight: bold;
+                text-decoration: none;
+                padding: 10px;
+            }
+
+                .action-links a:hover {
+                    color: #cc3399; /* Darker pink on hover */
+                }
+    </style>
+</head>
+<body>
+
+    <!-- Main Title -->
+    <h1>Event Details</h1>
+
+    <!-- Event Details Section -->
+    <div class="container">
+        <h4>Event Information</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EventName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EventName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EventDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EventDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+    </div>
+
+    <!-- Action Links Section -->
+    <div class="action-links">
+        <a asp-action="Edit" asp-route-id="@Model?.EventId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</body>
+</html>
