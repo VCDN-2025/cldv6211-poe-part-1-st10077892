@@ -112,6 +112,12 @@
                         <a asp-action="Details" asp-route-id="@item.EventId">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.EventId">Delete</a>
                     </td>
+
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" width="150" height="100" />
+                    }
+
                 </tr>
             }
         </tbody>

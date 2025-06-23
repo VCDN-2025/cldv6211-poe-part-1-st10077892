@@ -110,6 +110,12 @@
             <dd>
                 @Html.DisplayFor(model => model.ImageUrl)
             </dd>
+
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" alt="Venue Image" class="img-fluid" />
+            }
+
         </dl>
     </div>
 

@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EventEase1.Models;
 
-public partial class CldvContext : DbContext
+public partial class CldvDbContext : DbContext
 {
-    public CldvContext()
+    public CldvDbContext()
     {
     }
 
-    public CldvContext(DbContextOptions<CldvContext> options)
+    public CldvDbContext(DbContextOptions<CldvDbContext> options)
         : base(options)
     {
     }

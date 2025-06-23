@@ -11,9 +11,9 @@ namespace EventEase1.Controllers
 {
     public class BookingController : Controller
     {
-        private readonly CldvContext _context;
+        private readonly CldvDbContext _context;
 
-        public BookingController(CldvContext context)
+        public BookingController(CldvDbContext context)
         {
             _context = context;
         }

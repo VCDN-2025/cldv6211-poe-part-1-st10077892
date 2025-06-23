@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EventEase1.Models;
+using EventEase1.Services;
 
 namespace EventEase1.Controllers
 {
     public class VenueController : Controller
     {
-        private readonly CldvContext _context;
+        private readonly CldvDbContext _context;
+        private readonly AzureBlobService _blobService;
 
-        public VenueController(CldvContext context)
+        public VenueController(CldvDbContext context, AzureBlobService blobService )
         {
             _context = context;
+            _blobService = blobService;
         }
 
         // GET: Venue
@@ -53,16 +56,25 @@ namespace EventEase1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VenueId,VenueName,Location,Capacity,ImageUrl")] Venue venue)
+        public async Task<IActionResult> Create(Venue venue, IFormFile ImageFile)
         {
             if (ModelState.IsValid)
             {
+                if (ImageFile != null && ImageFile.Length > 0)
+                {
+                    // Upload to blob storage
+                    var blobUrl = await _blobService.UploadFileAsync(ImageFile);
+                    venue.ImageUrl = blobUrl;
+                }
+
                 _context.Add(venue);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(venue);
         }
+
 
         // GET: Venue/Edit/5
         public async Task<IActionResult> Edit(int? id)

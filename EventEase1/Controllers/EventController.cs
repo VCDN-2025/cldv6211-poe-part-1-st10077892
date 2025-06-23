@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,9 +11,9 @@ namespace EventEase1.Controllers
 {
     public class EventController : Controller
     {
-        private readonly CldvContext _context;
+        private readonly CldvDbContext _context;
 
-        public EventController(CldvContext context)
+        public EventController(CldvDbContext context)
         {
             _context = context;
         }

@@ -1,11 +1,18 @@
-using EventEase1.Models;
+﻿using EventEase1.Models;
+using EventEase1.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Add DbContext
-builder.Services.AddDbContext<CldvContext>(options =>
+builder.Services.AddDbContext<CldvDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddSingleton<AzureBlobService>();
+
+builder.Services.AddScoped<AzureBlobService>();
+
+
 
 
 
